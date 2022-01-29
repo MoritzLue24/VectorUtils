@@ -1,10 +1,35 @@
-from math import sqrt, atan2, hypot
+from math import sqrt, atan2, hypot, cos, sin
+from random import uniform
+from typing import Tuple
 
 
 class Vector2:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+    @staticmethod
+    def random(min: float=-1, max: float=1):
+        return Vector2(uniform(min, max), uniform(min, max))
+
+    @staticmethod
+    def fromTuple(tuple: Tuple):
+        return Vector2(tuple[0], tuple[1])
+
+    def copy(self):
+        return Vector2(self.x, self.y)
+
+    def normalize(self):
+        mag = self.getMag()
+        if mag > 0:
+            self.x /= mag
+            self.y /= mag
+
+    def rotate(self, deg):
+        h = atan2(self.y, self.x) + deg
+        mag = self.getMag()
+        self.x = cos(h) * mag
+        self.y = sin(h) * mag
 
     def getMag(self):
         return sqrt(self.x**2 + self.y**2)
@@ -29,6 +54,9 @@ class Vector2:
 
     def toFloat(self):
         return Vector2(float(self.x), float(self.y))
+
+    def __repr__(self):
+        return f'Vector2({self.x}, {self.y})'
 
     def __add__(self, other):
         if type(other) == Vector2:
