@@ -71,10 +71,11 @@ class Vector2:
         '''
         Pass as many vectors as you want as arguments.
         '''
-        vectors = [self]
+        vectors = [self.x, self.y]
         for vec in args:
             if type(vec) == Vector2:
-                vectors.append(vec)
+                vectors.append(vec.x)
+                vectors.append(vec.y)
         return vectors
 
     def __repr__(self):
