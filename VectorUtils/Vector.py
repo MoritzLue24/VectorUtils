@@ -10,13 +10,22 @@ class Vector2:
 
     @staticmethod
     def random(min: float=-1, max: float=1):
+        '''
+        Create an Vector2 object with random values between min and max
+        '''
         return Vector2(uniform(min, max), uniform(min, max))
 
     @staticmethod
     def fromTuple(tuple: Tuple):
+        '''
+        Create an Vector2 object with a tuple
+        '''
         return Vector2(tuple[0], tuple[1])
 
     def copy(self):
+        '''
+        Copys the vector
+        '''
         return Vector2(self.x, self.y)
 
     def normalize(self):
@@ -44,6 +53,9 @@ class Vector2:
         return atan2((other.y - self.y), (other.x - self.x))
 
     def getDist(self, other):
+        '''
+        Get distance between two vectors
+        '''
         return hypot((other.x - self.x), (other.y - self.y))
 
     def toTuple(self):
@@ -54,6 +66,16 @@ class Vector2:
 
     def toFloat(self):
         return Vector2(float(self.x), float(self.y))
+
+    def compineToList(self, *args):
+        '''
+        Pass as many vectors as you want as arguments.
+        '''
+        vectors = [self]
+        for vec in args:
+            if type(vec) == Vector2:
+                vectors.append(vec)
+        return vectors
 
     def __repr__(self):
         return f'Vector2({self.x}, {self.y})'
