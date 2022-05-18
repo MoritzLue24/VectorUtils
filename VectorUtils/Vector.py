@@ -67,7 +67,7 @@ class Vector2:
     def toFloat(self):
         return Vector2(float(self.x), float(self.y))
 
-    def compineToList(self, *args):
+    def combineToList(self, *args):
         '''
         Pass as many vectors as you want as arguments.
         '''
