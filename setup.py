@@ -8,15 +8,15 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.3.4'
-DESCRIPTION = 'Some Vector utils...'
+VERSION = '1.4.1'
+DESCRIPTION = 'Visit https://github.com/Monkvy/VectorUtils for the source code.'
 
 # Setting up
 setup(
     name="VectorUtils",
     version=VERSION,
     author="Monkvy",
-    author_email="moluecke@gmx.de",
+    author_email="",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
