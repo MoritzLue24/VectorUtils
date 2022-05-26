@@ -1,3 +1,4 @@
+from logging import exception
 from math import sqrt, atan2, hypot, cos, sin
 from random import uniform
 from typing import Tuple
@@ -67,15 +68,29 @@ class Vector2:
     def toFloat(self):
         return Vector2(float(self.x), float(self.y))
 
-    def combineToList(self, *args):
+    def round(self, n=0):
+        return Vector2(round(self.x, n), round(self.y, n))
+
+    def combineToList(self, other):
         '''
-        Pass as many vectors as you want as arguments.
+        Returns self and other as a list combined
+
+        Args:
+            other(Vector2 | list | tuple) - the other vector or list to combine
         '''
+
         vectors = [self.x, self.y]
-        for vec in args:
-            if type(vec) == Vector2:
-                vectors.append(vec.x)
-                vectors.append(vec.y)
+        
+        if type(other) == Vector2:
+            vectors.append(other.x)
+            vectors.append(other.y)
+        
+        elif type(other) == list or tuple:
+            for i in other:
+                if type(i) == int or float:
+                    vectors.append(i)
+                else:
+                    raise exception(f'{i} is not a valid type')
         return vectors
 
     def __repr__(self):
