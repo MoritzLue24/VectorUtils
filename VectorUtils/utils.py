@@ -1,4 +1,4 @@
-from math import cos, radians
+from math import cos
 from vector2 import Vector2
 from vector3 import Vector3
 
