@@ -1,6 +1,6 @@
 from math import cos
-from vector2 import Vector2
-from vector3 import Vector3
+from VectorUtils.vector2 import Vector2
+from VectorUtils.vector3 import Vector3
 
 
 def Vector(iterable: list[int | float] | tuple[int | float]):
