@@ -1,3 +1,3 @@
-from vector2 import *
-from vector3 import *
-from utils import *
+from VectorUtils.vector2 import *
+from VectorUtils.vector3 import *
+from VectorUtils.utils import *
