@@ -1,12 +1,33 @@
 from logging import exception
 from math import sqrt, cos, sin, atan2, hypot
 from random import uniform
+from typing import Iterable, overload
 
 
 class Vector2:
-    def __init__(self, x: int | float, y: int | float):
-        self.x = x
-        self.y = y
+    @overload
+    def __init__(self, x: int | float, y: int | float): ...
+    @overload
+    def __init__(self, iterable: Iterable): ...
+    
+    def __init__(self, *args, **kwargs):
+        if len(args) == 1:
+            if isinstance(args[0], Iterable):
+                if len(args[0]) != 2:
+                    raise ValueError(f'Invalid length of iterable argument at i=0: {args[0]}.')
+                self.x = args[0][0]
+                self.y = args[0][1]
+        
+        elif len(args) == 2:
+            if not isinstance(args[0], int | float):
+                raise TypeError(f'Invalid type of argument at i=0: {args[0]}.')
+            elif not isinstance(args[1], int | float):
+                raise TypeError(f'Invalid type of argument at i=1: {args[1]}.')
+            self.x = args[0]
+            self.y = args[1]
+            
+        else:
+            raise TypeError(f'Invalid length of arguments: {args}.')
 
     @staticmethod
     def random(min: float=-1, max: float=1):

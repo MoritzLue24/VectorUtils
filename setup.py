@@ -8,7 +8,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '2.0.2'
+VERSION = '2.1.3'
 DESCRIPTION = 'Visit https://github.com/Monkvy/VectorUtils for the source code.'
 
 # Setting up
